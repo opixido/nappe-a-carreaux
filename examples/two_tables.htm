@@ -1,0 +1,1550 @@
+
+<!doctype html>
+<html  lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="../jquery.rwdAccTables.js" ></script>
+        <style type="text/css">
+
+            table {
+                border:1px solid #aaa;
+                margin-bottom:20px;
+            }
+            body, html {
+                padding:0;margin:0;
+                width:100%;
+                text-align:center;
+                font-family:arial;
+            }
+            .active0 {
+                background:#aaa;
+            }
+            .active1{
+                background:#bbb;
+            }
+            .active2 {
+                background:#ccc;
+            }
+            .active3 {
+                background:#ddd;
+            }
+            .active4 {
+                background:#eee;
+            }
+            .active5 {
+                background:#eee;
+            }
+            .active6 {
+                background:#eee;
+            }
+            .active7 {
+                background:#eee;
+            }        
+
+            table {
+                width:100%;
+                border-collapse:collapse;
+            }
+
+            td, th {
+                padding:10px;
+                -webkit-transition:all 0.2s;
+            }
+            td {
+                text-align:right;
+
+            }
+            tr {
+                border-bottom:1px solid #ccc;
+            }
+
+            th:hover, td:hover {
+                background:#aaa;
+            }
+
+            th {
+                background:#eee;
+            }
+
+            .hidden {
+                visibility:hidden;
+                position:absolute;
+                width:0;
+                height:0;
+                overflow:hidden;
+                border:0;
+                padding:0;
+                display: block;
+
+            }
+
+            .table-wrapper {
+                width:100%;   
+                overflow:hidden;
+                overflow-x:auto;
+            }
+
+            .tableHeaderToggle  {
+                position:relative;
+                float:right;
+            }
+            .tableHeaderToggle > ul {
+                position:absolute;
+                background:white;
+                border-radius:10px;
+                -moz-box-shadow: 0px 0px 10px 5px #656565;
+                -webkit-box-shadow: 0px 0px 10px 5px #656565;
+                -o-box-shadow: 0px 0px 10px 5px #656565;
+                box-shadow: 0px 0px 10px 5px #656565;
+                filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=10);
+                right:20px;
+                min-width:250px;
+                top:2em;
+            }
+
+            .tableHeaderToggle > a {
+
+                -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+                -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+                box-shadow:inset 0px 1px 0px 0px #ffffff;
+
+                background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
+                background:-moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+                background:-webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+                background:-o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+                background:-ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+                background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
+
+                background-color:#f9f9f9;
+
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                border-radius:6px;
+
+                border:1px solid #dcdcdc;
+
+                display:inline-block;
+                color:#666666;
+                font-family:arial;
+                font-size:15px;
+                font-weight:bold;
+                padding:6px 24px;
+                text-decoration:none;
+
+                text-shadow:0px 1px 0px #ffffff;
+
+            }
+
+        </style>
+
+        <script>
+            $(document).ready(function() {
+                $('table').rwdAccTables();
+
+                $('td, th').hover(function() {
+                    var headers = $(this).attr('headers').trim().split(' ');
+                    headers = headers.filter(function(v) {
+                        return v !== ''
+                    });
+                    $('.active').removeClass();
+                    for (p = 0; p <= headers.length; p++) {
+                        $('#' + headers[p]).addClass('active').addClass('active' + p);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>
+            <a href="https://github.com/opixido/rwdAccTables">Example of reponsive and accessible data tables from https://github.com/opixido/rwdAccTables</a>
+        </h1>
+        <p>
+            Resize your window and/or switch columns with the buttons
+        </p>
+        <div style="width:100%;max-width:960px;margin-left:auto;margin-right:auto;text-align:left;">
+
+            <div class="table-wrapper"><table  ><caption>Année d'admission au séjour régulier : 2006</caption><tr><th
+                            colspan="3" 
+                            rowspan="3" 
+                            class=" persistence essential"
+                            id="col-A4"
+                            headers="" 
+                            ></th><th
+                            colspan="1" 
+                            rowspan="3" 
+                            class=" "
+                            id="col-D4"
+                            headers="" 
+                            >Ensemble</th><th
+                            colspan="13" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-E4"
+                            headers="" 
+                            >Motif d'admission</th></tr><tr><th
+                            colspan="5" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-E5"
+                            headers=" col-E4 " 
+                            >Membre de famille</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-J5"
+                            headers=" col-E4 " 
+                            >Travailleur</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-K5"
+                            headers=" col-E4 " 
+                            >Etudiant</th><th
+                            colspan="2" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-L5"
+                            headers=" col-E4 " 
+                            >Protection humanitaire</th><th
+                            colspan="2" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-N5"
+                            headers=" col-E4 " 
+                            >Indépendant économiquement</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-P5"
+                            headers=" col-E4 " 
+                            >Régularisation</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-Q5"
+                            headers=" col-E4 " 
+                            >Motif indéterminé</th></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-E6"
+                            headers=" col-E5  col-E4 " 
+                            >Asc./desc. de Français</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-F6"
+                            headers=" col-E5  col-E4 " 
+                            >Carte "Vie privée & familiale"</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-G6"
+                            headers=" col-E5  col-E4 " 
+                            >Conjoint d'étranger</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-H6"
+                            headers=" col-E5  col-E4 " 
+                            >Conjoint de Français</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-I6"
+                            headers=" col-E5  col-E4 " 
+                            >Mineur (6)</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-J6"
+                            headers=" col-J5  col-E4 " 
+                            >Travailleur</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-K6"
+                            headers=" col-K5  col-E4 " 
+                            >Etudiant</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-L6"
+                            headers=" col-L5  col-E4 " 
+                            >Carte "Etranger malade"</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-M6"
+                            headers=" col-L5  col-E4 " 
+                            >Réfugié et apatride</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-N6"
+                            headers=" col-N5  col-E4 " 
+                            >Carte "Retraité"</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-O6"
+                            headers=" col-N5  col-E4 " 
+                            >Carte "Visiteur"</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-P6"
+                            headers=" col-P5  col-E4 " 
+                            >Régulari-  sation</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-Q6"
+                            headers=" col-Q5  col-E4 " 
+                            >Inconnu</th></tr><tr><th
+                            colspan="1" 
+                            rowspan="3" 
+                            class=" "
+                            id="col-A7"
+                            headers=" col-" 
+                            >Espace Economique Européen élargi</th><th
+                            colspan="1" 
+                            rowspan="3" 
+                            class=" essential"
+                            id="col-B7"
+                            headers=" col-A7  col-" 
+                            ></th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-C7"
+                            headers=" col-B7  col-A7  col-" 
+                            >Espace Economique Européen (1)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-E6  col-E5  col-E4 "  
+                            >3,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-F6  col-E5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-G6  col-E5  col-E4 "  
+                            >7,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-H6  col-E5  col-E4 "  
+                            >0,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-I6  col-E5  col-E4 "  
+                            >11,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-J6  col-J5  col-E4 "  
+                            >28,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-K6  col-K5  col-E4 "  
+                            >1,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-L6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-M6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-O6  col-N5  col-E4 "  
+                            >48,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-P6  col-P5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C7  col-B7  col-A7  col-Q6  col-Q5  col-E4 "  
+                            >0</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-C8"
+                            headers=" col-B7  col-A7  col-" 
+                            >Nouveaux Etats Membres (2)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-E6  col-E5  col-E4 "  
+                            >11,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-F6  col-E5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-G6  col-E5  col-E4 "  
+                            >7,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-H6  col-E5  col-E4 "  
+                            >2,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-I6  col-E5  col-E4 "  
+                            >5,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-J6  col-J5  col-E4 "  
+                            >45,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-K6  col-K5  col-E4 "  
+                            >13,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-L6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-M6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-O6  col-N5  col-E4 "  
+                            >5,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-P6  col-P5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C8  col-B7  col-A7  col-Q6  col-Q5  col-E4 "  
+                            >9,1</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C9"
+                            headers=" col-B7  col-A7  col-" 
+                            >Total</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-E6  col-E5  col-E4 "  
+                            >4,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-F6  col-E5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-G6  col-E5  col-E4 "  
+                            >7,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-H6  col-E5  col-E4 "  
+                            >0,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-I6  col-E5  col-E4 "  
+                            >10,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-J6  col-J5  col-E4 "  
+                            >30,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-K6  col-K5  col-E4 "  
+                            >2,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-L6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-M6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-O6  col-N5  col-E4 "  
+                            >45,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-P6  col-P5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C9  col-B7  col-A7  col-Q6  col-Q5  col-E4 "  
+                            >0,6</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="15" 
+                            class=" "
+                            id="col-A10"
+                            headers=" col-" 
+                            >Pays Tiers</th><th
+                            colspan="1" 
+                            rowspan="3" 
+                            class=" essential"
+                            id="col-B10"
+                            headers=" col-A10  col-" 
+                            >Europe</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-C10"
+                            headers=" col-B10  col-A10  col-" 
+                            >Bulgarie + Roumanie</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-E6  col-E5  col-E4 "  
+                            >4,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-F6  col-E5  col-E4 "  
+                            >16,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-G6  col-E5  col-E4 "  
+                            >4,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-H6  col-E5  col-E4 "  
+                            >15,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-I6  col-E5  col-E4 "  
+                            >2,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-J6  col-J5  col-E4 "  
+                            >11,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-K6  col-K5  col-E4 "  
+                            >38,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-L6  col-L5  col-E4 "  
+                            >2,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-M6  col-L5  col-E4 "  
+                            >0,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-O6  col-N5  col-E4 "  
+                            >4,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-P6  col-P5  col-E4 "  
+                            >0,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C10  col-B10  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,2</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-C11"
+                            headers=" col-B10  col-A10  col-" 
+                            >Autres pays européens (3)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-E6  col-E5  col-E4 "  
+                            >2,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-F6  col-E5  col-E4 "  
+                            >12,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-G6  col-E5  col-E4 "  
+                            >11,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-H6  col-E5  col-E4 "  
+                            >23,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-I6  col-E5  col-E4 "  
+                            >9,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-J6  col-J5  col-E4 "  
+                            >13,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-K6  col-K5  col-E4 "  
+                            >10,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-L6  col-L5  col-E4 "  
+                            >2,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-M6  col-L5  col-E4 "  
+                            >11,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-N6  col-N5  col-E4 "  
+                            >0,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-O6  col-N5  col-E4 "  
+                            >3,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-P6  col-P5  col-E4 "  
+                            >0,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C11  col-B10  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,0</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C12"
+                            headers=" col-B10  col-A10  col-" 
+                            >Total</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-E6  col-E5  col-E4 "  
+                            >2,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-F6  col-E5  col-E4 "  
+                            >13,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-G6  col-E5  col-E4 "  
+                            >10,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-H6  col-E5  col-E4 "  
+                            >21,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-I6  col-E5  col-E4 "  
+                            >8,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-J6  col-J5  col-E4 "  
+                            >12,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-K6  col-K5  col-E4 "  
+                            >14,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-L6  col-L5  col-E4 "  
+                            >2,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-M6  col-L5  col-E4 "  
+                            >9,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-N6  col-N5  col-E4 "  
+                            >0,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-O6  col-N5  col-E4 "  
+                            >3,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-P6  col-P5  col-E4 "  
+                            >0,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C12  col-B10  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,1</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="4" 
+                            class=" essential"
+                            id="col-B13"
+                            headers=" col-A10  col-" 
+                            >Afrique</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C13"
+                            headers=" col-B13  col-A10  col-" 
+                            >Maghreb</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-E6  col-E5  col-E4 "  
+                            >4,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-F6  col-E5  col-E4 "  
+                            >9,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-G6  col-E5  col-E4 "  
+                            >10,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-H6  col-E5  col-E4 "  
+                            >43,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-I6  col-E5  col-E4 "  
+                            >7,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-J6  col-J5  col-E4 "  
+                            >1,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-K6  col-K5  col-E4 "  
+                            >13,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-L6  col-L5  col-E4 "  
+                            >2,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-M6  col-L5  col-E4 "  
+                            >0,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-N6  col-N5  col-E4 "  
+                            >3,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-O6  col-N5  col-E4 "  
+                            >1,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-P6  col-P5  col-E4 "  
+                            >1,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C13  col-B13  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,1</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-C14"
+                            headers=" col-B13  col-A10  col-" 
+                            >Pays anciennement sous administration française (4)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-E6  col-E5  col-E4 "  
+                            >17,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-F6  col-E5  col-E4 "  
+                            >12,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-G6  col-E5  col-E4 "  
+                            >2,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-H6  col-E5  col-E4 "  
+                            >19,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-I6  col-E5  col-E4 "  
+                            >7,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-J6  col-J5  col-E4 "  
+                            >1,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-K6  col-K5  col-E4 "  
+                            >21,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-L6  col-L5  col-E4 "  
+                            >8,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-M6  col-L5  col-E4 "  
+                            >5,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-N6  col-N5  col-E4 "  
+                            >0,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-O6  col-N5  col-E4 "  
+                            >2,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-P6  col-P5  col-E4 "  
+                            >2,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C14  col-B13  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,0</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-C15"
+                            headers=" col-B13  col-A10  col-" 
+                            >Autres pays africains</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-E6  col-E5  col-E4 "  
+                            >12,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-F6  col-E5  col-E4 "  
+                            >20,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-G6  col-E5  col-E4 "  
+                            >3,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-H6  col-E5  col-E4 "  
+                            >10,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-I6  col-E5  col-E4 "  
+                            >5,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-J6  col-J5  col-E4 "  
+                            >2,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-K6  col-K5  col-E4 "  
+                            >11,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-L6  col-L5  col-E4 "  
+                            >12,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-M6  col-L5  col-E4 "  
+                            >12,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-O6  col-N5  col-E4 "  
+                            >3,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-P6  col-P5  col-E4 "  
+                            >3,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C15  col-B13  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,1</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C16"
+                            headers=" col-B13  col-A10  col-" 
+                            >Total</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-E6  col-E5  col-E4 "  
+                            >9,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-F6  col-E5  col-E4 "  
+                            >11,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-G6  col-E5  col-E4 "  
+                            >7,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-H6  col-E5  col-E4 "  
+                            >33,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-I6  col-E5  col-E4 "  
+                            >7,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-J6  col-J5  col-E4 "  
+                            >1,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-K6  col-K5  col-E4 "  
+                            >15,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-L6  col-L5  col-E4 "  
+                            >4,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-M6  col-L5  col-E4 "  
+                            >2,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-N6  col-N5  col-E4 "  
+                            >2,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-O6  col-N5  col-E4 "  
+                            >2,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-P6  col-P5  col-E4 "  
+                            >1,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C16  col-B13  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,1</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="3" 
+                            class=" optionnal"
+                            id="col-B17"
+                            headers=" col-A10  col-" 
+                            >Asie</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-C17"
+                            headers=" col-B17  col-A10  col-" 
+                            >Sud-Est asiatique (5)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-E6  col-E5  col-E4 "  
+                            >1,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-F6  col-E5  col-E4 "  
+                            >2,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-G6  col-E5  col-E4 "  
+                            >2,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-H6  col-E5  col-E4 "  
+                            >38,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-I6  col-E5  col-E4 "  
+                            >3,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-J6  col-J5  col-E4 "  
+                            >4,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-K6  col-K5  col-E4 "  
+                            >41,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-L6  col-L5  col-E4 "  
+                            >0,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-M6  col-L5  col-E4 "  
+                            >0,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-O6  col-N5  col-E4 "  
+                            >4,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-P6  col-P5  col-E4 "  
+                            >0,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C17  col-B17  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-C18"
+                            headers=" col-B17  col-A10  col-" 
+                            >Autres pays asiatiques</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-E6  col-E5  col-E4 "  
+                            >1,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-F6  col-E5  col-E4 "  
+                            >12,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-G6  col-E5  col-E4 "  
+                            >3,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-H6  col-E5  col-E4 "  
+                            >10,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-I6  col-E5  col-E4 "  
+                            >3,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-J6  col-J5  col-E4 "  
+                            >6,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-K6  col-K5  col-E4 "  
+                            >45,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-L6  col-L5  col-E4 "  
+                            >1,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-M6  col-L5  col-E4 "  
+                            >6,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-O6  col-N5  col-E4 "  
+                            >6,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-P6  col-P5  col-E4 "  
+                            >1,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C18  col-B17  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,0</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C19"
+                            headers=" col-B17  col-A10  col-" 
+                            >Total</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-E6  col-E5  col-E4 "  
+                            >1,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-F6  col-E5  col-E4 "  
+                            >12,1</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-G6  col-E5  col-E4 "  
+                            >3,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-H6  col-E5  col-E4 "  
+                            >12,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-I6  col-E5  col-E4 "  
+                            >3,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-J6  col-J5  col-E4 "  
+                            >6,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-K6  col-K5  col-E4 "  
+                            >45,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-L6  col-L5  col-E4 "  
+                            >1,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-M6  col-L5  col-E4 "  
+                            >6,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-O6  col-N5  col-E4 "  
+                            >6,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-P6  col-P5  col-E4 "  
+                            >1,6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C19  col-B17  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,0</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="3" 
+                            class=" "
+                            id="col-B20"
+                            headers=" col-A10  col-" 
+                            >Amérique</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C20"
+                            headers=" col-B20  col-A10  col-" 
+                            >Amérique du Nord</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-E6  col-E5  col-E4 "  
+                            >0,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-F6  col-E5  col-E4 "  
+                            >1,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-G6  col-E5  col-E4 "  
+                            >4,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-H6  col-E5  col-E4 "  
+                            >11,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-I6  col-E5  col-E4 "  
+                            >0,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-J6  col-J5  col-E4 "  
+                            >17,7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-K6  col-K5  col-E4 "  
+                            >40,4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-L6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-M6  col-L5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-O6  col-N5  col-E4 "  
+                            >23,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-P6  col-P5  col-E4 "  
+                            >0,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C20  col-B20  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,1</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C21"
+                            headers=" col-B20  col-A10  col-" 
+                            >Autres pays américains</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-D4 "  
+                            >100,0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-E6  col-E5  col-E4 "  
+                            >5,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-F6  col-E5  col-E4 "  
+                            >13,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-G6  col-E5  col-E4 "  
+                            >4,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-H6  col-E5  col-E4 "  
+                            >17,5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-I6  col-E5  col-E4 "  
+                            >3,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-J6  col-J5  col-E4 "  
+                            >4,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-K6  col-K5  col-E4 "  
+                            >38,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-L6  col-L5  col-E4 "  
+                            >2,3</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-M6  col-L5  col-E4 "  
+                            >3,2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-N6  col-N5  col-E4 "  
+                            >0</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-O6  col-N5  col-E4 "  
+                            >5,9</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-P6  col-P5  col-E4 "  
+                            >0,8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-C21  col-B20  col-A10  col-Q6  col-Q5  col-E4 "  
+                            >0,0</td></tr></table></div><div class="table-wrapper"><table  ><caption></caption><tr><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=""  
+                            > </td><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-B4"
+                            headers="" 
+                            >Mères seules avec enfants</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-C4"
+                            headers="" 
+                            >Pères seuls avec enfants</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-D4"
+                            headers="" 
+                            >Ensemble</th><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-E4"
+                            headers="" 
+                            >avec enfants</th></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-A5"
+                            headers=" col-" 
+                            >Nombre de familles (en milliers)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A5  col-B4 "  
+                            >1486</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A5  col-C4 "  
+                            >272</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A5  col-D4 "  
+                            >1758</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A5  col-E4 "  
+                            >7014</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-A6"
+                            headers=" col-" 
+                            >Nombre d'enfants (en milliers)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A6  col-B4 "  
+                            >2436</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A6  col-C4 "  
+                            >408</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A6  col-D4 "  
+                            >2844</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A6  col-E4 "  
+                            >13185</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-A7"
+                            headers=" col-" 
+                            >Nombre moyen d'enfants par famille</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A7  col-B4 "  
+                            >1.6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A7  col-C4 "  
+                            >1.5</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A7  col-D4 "  
+                            >1.6</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A7  col-E4 "  
+                            >1.9</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-A8"
+                            headers=" col-" 
+                            >Répartition selon le nombre d'enfants par famille (en %)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A8  col-B4 "  
+                            > </td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A8  col-C4 "  
+                            > </td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A8  col-D4 "  
+                            > </td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A8  col-E4 "  
+                            > </td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" optionnal"
+                            id="col-A9"
+                            headers=" col-A8  col-A8" 
+                            >1 enfant </th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A9  col-A8  col-B4 "  
+                            >55</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A9  col-A8  col-C4 "  
+                            >63</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A9  col-A8  col-D4 "  
+                            >56</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A9  col-A8  col-E4 "  
+                            >39</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-A10"
+                            headers=" col-A8  col-A8" 
+                            >2 enfants</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A10  col-A8  col-B4 "  
+                            >31</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A10  col-A8  col-C4 "  
+                            >28</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A10  col-A8  col-D4 "  
+                            >30</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A10  col-A8  col-E4 "  
+                            >41</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-A11"
+                            headers=" col-A8  col-A8" 
+                            >3 enfants </th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A11  col-A8  col-B4 "  
+                            >10</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A11  col-A8  col-C4 "  
+                            >7</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A11  col-A8  col-D4 "  
+                            >10</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A11  col-A8  col-E4 "  
+                            >15</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-A12"
+                            headers=" col-A8  col-A8" 
+                            >4 enfants ou plus</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A12  col-A8  col-B4 "  
+                            >4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A12  col-A8  col-C4 "  
+                            >2</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A12  col-A8  col-D4 "  
+                            >4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A12  col-A8  col-E4 "  
+                            >5</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" "
+                            id="col-A13"
+                            headers=" col-" 
+                            >Total  des familles </th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A13  col-B4 "  
+                            >100</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A13  col-C4 "  
+                            >100</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A13  col-D4 "  
+                            >100</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A13  col-E4 "  
+                            >100</td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-A14"
+                            headers=" col-" 
+                            >Répartition des enfants selon leur âge (en %)</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A14  col-B4 "  
+                            > </td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A14  col-C4 "  
+                            > </td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A14  col-D4 "  
+                            > </td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A14  col-E4 "  
+                            > </td></tr><tr><th
+                            colspan="1" 
+                            rowspan="1" 
+                            class=" essential"
+                            id="col-A15"
+                            headers=" col-A14  col-A14" 
+                            >0-2 ans</th><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A15  col-A14  col-B4 "  
+                            >8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A15  col-A14  col-C4 "  
+                            >4</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A15  col-A14  col-D4 "  
+                            >8</td><td 		
+                            rowspan="1"
+                            colspan="1" 
+                            headers=" col-A15  col-A14  col-E4 "  
+                            >15</td></tr></table></div>        </div>
+</html>
